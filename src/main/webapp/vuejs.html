@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>快速入门</title>
+    <script src="js/vuejs/vuejs-2.5.16.js"></script>
+</head>
+<body>
+    <div id="app">
+     <!--   {{message}}
+        <button v-on:click="fun2('good')">点击改变</button>
+
+        <input type="text"v-on:keydown="fun3('good',$event)">
+
+        <textarea v-on:mouseover="fun5($event)">这是一个文本域</textarea>
+
+        <form @submit.prevent action="http://www.lening.cn" method="get">
+            <input type="submit" value="提交">
+        </form>
+        <div @click="fun6">
+            <a @click.stop href="http://www.lening.cn">lening</a>
+        </div>
+
+        <input type="text" v-on:keyup.enter="fun7">
+
+        <div v-text="message"></div>
+        <div v-html="message"></div>
+
+        <font size="5" v-bind:color="ys1">大数据</font>
+        <font size="5" v-bind:color="ys2">大数据222</font>
+
+        姓名：<input type="text" id="username" v-model="user.username"><br>
+        密码：<input type="password" id="password" v-model="user.password"><br>
+        <input type="button" @click="fun8" value="获取">
+
+        <ul>
+            <li v-for="(item,index) in list">
+                {{item+" "+index}}
+            </li>
+        </ul>
+        -->
+        <ul>
+            <li v-for="(value,key) in product">{{key}}--{{value}}</li>
+        </ul>
+
+
+    </div>
+    <!--快速入门
+    <script>
+
+        new Vue({
+            el:'#app',//表示当前vue对象接管了div区域
+            data:{
+                message:'hello world' //注意不要写分号结尾
+            }
+
+        });
+
+    </script>
+    <script>
+
+        new Vue({
+            el:'#app',//表示当前Vue对象接管了div区域
+            data:{
+                message1:'hello world'   //注意不要写分号结尾
+            },
+            methods:{
+                fun1:function (msg) {
+                    this.message1=msg;
+                }
+            }
+        });
+    </script>-->
+    <!--常用指令
+    <script>
+        //v-on:click
+        new Vue({
+            el:'#app',
+            data:{
+                message2:'hello world'
+            },
+            methods:{
+                fun2:function (msg) {
+                    this.message2=msg;
+                }
+            }
+        })
+
+    </script>
+    <script>
+    //v-on:keydown:不能区分大小写。keypress可以区分大小写$event相当于this
+        new Vue({
+            el:'#app',
+            methods:{
+                fun3:function (msg,event) {
+                    alert(event.keyCode);
+                    if(!((event.keyCode>=48&&event.keyCode<=57)||event.keyCode==8||event.keyCode==46)){
+                        event.preventDefault();
+                    }
+
+                }
+            }
+        });
+    </script>
+    <script>
+        //v-on:mouseover
+        new Vue({
+            el:'#app',
+            methods:{
+                fun4:function(){
+                  alert("div");
+                },
+                fun5:function (event) {
+                    alert("textarea");
+                   event.stopPropagation();
+
+                }
+            }
+        });
+    </script>-->
+    <!--事件修饰符
+    <script>
+        new Vue({
+            el:'#app',
+            methods:{
+                fun6:function () {
+                    alert("hello leningjiaoyu");
+                }
+            }
+        });
+    </script>-->
+    <!--按键修饰符
+    <script>
+        new Vue({
+            el:'#app',
+            methods:{
+                fun7:function () {
+                    alert("你按了回车");
+                }
+            }
+        })
+    </script>-->
+    <!--v-text与v-html
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                message:"<h1>大数据</h1>"
+            }
+        });
+    </script>-->
+    <!--v-bind:插值语法不能作用在 HTML 特性上，遇到这种情况应该使用 v-bind指令
+    <script>
+            new Vue({
+                el:'#app',
+                data:{
+                    ys1:'red',
+                    ys2:"green"
+                }
+            });
+    </script>-->
+    <!--v-model
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                user:{username:"",password:""}
+            },
+            methods:{
+                fun8:function () {
+                    alert(this.user.username+" "+this.user.password);
+                    this.user.username="linda";
+                    this.user.password="111111";
+                }
+            }
+        })
+    </script>-->
+    <!--v-for
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                list:[1,2,3,4]
+            }
+        })
+    </script>-->
+    <!--操作对象
+    <script>
+        new Vue({
+            el:'#app',
+        //表示当前vue对象接管了div区域
+        data:{
+            product:{id:1,pname:"电视机",price:6000}
+            }
+        });
+    </script>-->
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+
+        for (var i = 0; i < 5; i++) {
+            console.log(i);
+        }
+        console.log("循环外："+i);
+        console.log("++++++++++++++++++++++++++++");
+
+        //let所声明的变量，只在let命令所在的代码块内有效
+        for (let a=0;a<5;a++){
+            console.log(a);
+        }
+        //console.log("循环外："+a);
+        console.log("++++++++++++++++++++++++++++");
+
+        //const声明的变量是常量，不能被修改，类似于Java中的final关键字
+        const b =1;
+        console.log("b=",b);
+        //给b重新赋值
+        //b = 2;
+        //console.log("b=",b);
+        console.log("++++++++++++++++++++++++++++");
+
+        //includes（）：返回布尔值，表示是否找到了参数字符串
+        //startswith（）：返回布尔值，表示参数字符串是否在原字符串的头部
+        //endswith（）：返回布尔值，表示参数字符串是否在原字符串的尾部
+        let str = "hello linda";
+        console.log(str,"中是否包含了linda=>",str.includes("linda"));
+        console.log(str,"中是否包含了liling=>",str.includes("liling"));
+        console.log(str,"中是否以h开头=>",str.startsWith("h"));
+        console.log(str,"中是否以a开头=>",str.startsWith("a"));
+        console.log(str,"中是否以a结束=>",str.endsWith("a"));
+        console.log(str,"中是否以a结束=>",str.endsWith("h"));
+        console.log("++++++++++++++++++++++++++++");
+
+        //字符串模板
+        //在两个`之间的部分都会被作为字符串的值，可以任意换行。
+        let str1 = `hello
+                    lening
+                    jiaoyu`;
+        let str2 = "hello " +
+            "leningjiaoyu";
+        console.log(str1);
+        console.log(str2);
+        console.log("++++++++++++++++++++++++++++");
+
+        //数组解构
+        let arr = [1,2,3];
+        //通过角标获取
+        const [x,y,z] = arr;    //x,y,z将与arr中的每个位置对应来取值
+        //然后打印
+        console.log(x,y,z);
+        const [a] = arr;        //只匹配1个参数
+        console.log(a);
+        console.log("++++++++++++++++++++++++++++");
+
+        //对象解构：支持解构某一个属性
+        const person ={
+            name:"jack",
+            age:21,
+            language:['java','js','css']
+        }
+        //解构表达式取值
+        const {name,age,language} = person;
+        //打印
+        console.log(name);
+        console.log(age);
+        console.log(language);
+        console.log("++++++++++++++++++++++++++++");
+
+        function add(a,b) {
+            //判断b是否为空，为空就给默认值1
+            b = b || 1;
+            return a+b;
+        }
+        //传一个参数
+        console.log(add(10));
+        console.log("++++++++++++++++++++++++++++");
+
+        //箭头函数
+        //一个参数
+        var print = function (obj) {
+            console.log(obj);
+        }
+        //简写为
+        var print2 = obj => console.log(obj);
+        console.log(print);
+        console.log(print2);
+        //多个参数
+        var sum = function (a,b) {
+            return a+b;
+        }
+        var sum2 = (a,b) =>a+b;
+        console.log(sum);
+        console.log(sum2);
+        //没有参数
+        //没有参数时，需要通过（）进行站占位，代表参数部分
+        let sayHello = () =>console.log("hello");
+        sayHello();
+        //代码不止一行，可以用{}括起来
+        var sum3 = (a,b)=>{
+            return a+b;
+        }
+        //多行，没有返回值
+        let sayHello2 = () =>{
+            console.log("hello!");
+            console.log("world!");
+
+        }
+        sayHello2();
+
+        //对象的函数属性
+        let person2 ={
+            name:"jack",
+            //以前：
+            eat:function (food) {
+                console.log(this.name+"在吃"+food);
+            },
+            //箭头函数版
+            eat2:food => console.log(person.name+"在吃"+food),//这里拿不到this
+            //简写版
+            eat3(food){
+                console.log(this.name+"在吃"+food);
+            }
+
+        }
+        console.log(person2.eat("苹果"));
+
+        //有一个函数
+        const person3 ={
+            name:"jack",
+            age:21,
+            language: ['java','js','css']
+        }
+        function hello(person) {
+            console.log("hello,"+person.name);
+        }
+
+        //用箭头函数和解构表达式
+        var hi = ({name}) => console.log("hello,"+name);
+        hi(person3)
+
+        //map:接收一个函数，将原数组中的所有元素用这个函数处理后放入新数组返回
+        let arr=['1','20','-5','3'];
+        console.log(arr);
+        let newArr = arr.map(s => parseInt(s));
+        console.log(newArr);
+
+        //reduce:接收一个函数和一个初始值，该函数接收两个参数
+        //第一个参数是上一个reduce处理的结果
+        //第二个参数是数组中要处理的下一个元素
+
+
+
+
+    </script>
+
+</body>
+</html>
